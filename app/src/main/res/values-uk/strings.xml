@@ -148,7 +148,7 @@ Transportr зберігає часто використовувані місця
     <item quantity="other">%d зупинок</item>
   </plurals>
   <!--This is the platform or position where a train will depart or arrive. Please keep it short as it will be shown after the station name.-->
-  <string name="platform">(Перон %s)</string>
+  <string name="platform">Перон %s</string>
   <string name="system_default">За замовчуванням</string>
   <string name="trip_share_date">Дата: %s</string>
   <string name="times_include_delays">(Увага: Часи можуть включати повідомлені затримки)</string>

@@ -20,6 +20,7 @@
 package de.grobox.transportr.favorites.trips;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,7 @@ import de.grobox.transportr.R;
 import de.grobox.transportr.TransportrFragment;
 import de.grobox.transportr.data.locations.HomeLocation;
 import de.grobox.transportr.data.locations.WorkLocation;
+import de.grobox.transportr.departures.DeparturesActivity;
 import de.grobox.transportr.favorites.locations.HomePickerDialogFragment;
 import de.grobox.transportr.favorites.locations.WorkPickerDialogFragment;
 import de.grobox.transportr.locations.WrapLocation;
@@ -49,6 +51,7 @@ import static androidx.recyclerview.widget.SortedList.INVALID_POSITION;
 import static de.grobox.transportr.favorites.trips.FavoriteTripType.HOME;
 import static de.grobox.transportr.favorites.trips.FavoriteTripType.TRIP;
 import static de.grobox.transportr.favorites.trips.FavoriteTripType.WORK;
+import static de.grobox.transportr.utils.Constants.WRAP_LOCATION;
 import static de.grobox.transportr.utils.IntentUtils.findDirections;
 
 @ParametersAreNonnullByDefault
@@ -159,17 +162,24 @@ public abstract class FavoriteTripsFragment<VM extends SavedSearchesViewModel> e
 
 	@Override
 	public void onFavoriteClicked(FavoriteTripItem item) {
+
 		if (item.getType() == HOME) {
 			if (item.getTo() == null) {
 				changeHome();
 			} else {
-				onSpecialLocationClicked(item.getTo());
+				// onSpecialLocationClicked(item.getTo());
+				Intent intent = new Intent(getContext(), DeparturesActivity.class);
+				intent.putExtra(WRAP_LOCATION, item.getTo());
+				startActivity(intent);
 			}
 		} else if (item.getType() == WORK) {
 			if (item.getTo() == null) {
 				changeWork();
 			} else {
-				onSpecialLocationClicked(item.getTo());
+				// onSpecialLocationClicked(item.getTo());
+				Intent intent = new Intent(getContext(), DeparturesActivity.class);
+				intent.putExtra(WRAP_LOCATION, item.getTo());
+				startActivity(intent);
 			}
 		} else if (item.getType() == TRIP) {
 			if (item.getFrom() == null || item.getTo() == null) throw new IllegalArgumentException();

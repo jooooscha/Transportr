@@ -140,7 +140,7 @@ internal class LegViewHolder(v: View, private val listener: LegClickListener, pr
 
         // Stops
         if (leg.intermediateStops != null && leg.intermediateStops!!.size > 0) {
-            val numStops = leg.intermediateStops!!.size
+            val numStops = leg.intermediateStops!!.size + 1
             stopsText.text = stopsText.context.resources.getQuantityString(R.plurals.stops, numStops, numStops)
 
             // Stops Expansion

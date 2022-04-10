@@ -21,6 +21,10 @@ package de.grobox.transportr.trips
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Typeface
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.StyleSpan
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -87,7 +91,15 @@ internal abstract class BaseViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     @SuppressLint("SetTextI18n")
     protected fun TextView.addPlatform(position: Position?) {
         if (position == null) return
-        text = "$text ${context.getString(R.string.platform, position.toString())}"
+        //text = "$text at ${context.getString(R.string.platform, position.toString())}"
+        val platformText = "$text at ${context.getString(R.string.platform, position.toString())}"
+        val platform = SpannableString(platformText)
+        val italic = StyleSpan(Typeface.ITALIC)
+        // val bold = StyleSpan(Typeface.BOLD)
+        // platform.setSpan(bold, 0, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        platform.setSpan(italic, text.length, platform.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        text = platform
+
     }
 
 }

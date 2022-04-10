@@ -145,10 +145,18 @@ public class WrapLocation implements Serializable {
 
 	public String getName() {
 		// FIXME improve
+		String name = getLocation().name;
+		String place = getLocation().place;
 		if (type.equals(LocationType.COORD)) {
 			return TransportrUtils.getCoordName(getLocation());
-		} else if (getLocation().uniqueShortName() != null) {
-			return getLocation().uniqueShortName();
+			// } else if (getLocation().uniqueShortName() != null) {
+			// return getLocation().uniqueShortName();
+		} else if (name != null && place != null) {
+				return name + ", " + place;
+		} else if (name != null) {
+				return name;
+		} else if (place != null) {
+				return place;
 		} else if (hasId()) {
 			return id;
 		} else {

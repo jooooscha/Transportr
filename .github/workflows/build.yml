@@ -1,37 +1,30 @@
-name: Build and test
+name: Build & Publish Release APK
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - '*'
 
 jobs:
-  build:
-    runs-on: macos-latest # to be able to run Android emulator, see https://github.com/marketplace/actions/android-emulator-runner
-    
-    strategy:
-      fail-fast: false
-      matrix:
-        api-level: [21, 29, 31]
-
+  Gradle:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/wrapper-validation-action@v1
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: 11
-      - name: Get AVD arch
-        uses: ./.github/actions/get-avd-arch
-        id: avd-arch
-        with:
-          api-level: ${{ matrix.api-level }}
-      - uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ matrix.api-level }}
-          target: default
-          arch: ${{ steps.avd-arch.outputs.arch }}
-          profile: Nexus 6
-          script: ./gradlew build connectedCheck -PbuildServer -Pandroid.testInstrumentationRunnerArguments.notAnnotation=androidx.test.filters.LargeTest --stacktrace
-
+    - name: checkout code
+      uses: actions/checkout@v2
+    - name: setup jdk
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Make Gradle executable
+      run: chmod +x ./gradlew
+    - name: Build Release APK
+      run: ./gradlew assembleRelease
+    - name: Releasing using Hub
+      uses: jooooscha/action-release-releaseapk@master
+      env:
+       GITHUB_TOKEN: ${{ secrets.RELEASETOKEN }}
+       VERSION_VARIABLE: versionName
+       APP_FILE: buildSrc/Android.kt
+       APP_FOLDER: app
+       RELEASE_TITLE: New Build
+       NAME_VARIABLE: app-release.apk

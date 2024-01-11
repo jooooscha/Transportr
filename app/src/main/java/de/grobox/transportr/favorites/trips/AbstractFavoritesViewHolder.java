@@ -43,6 +43,7 @@ abstract class AbstractFavoritesViewHolder extends RecyclerView.ViewHolder {
 	@CallSuper
 	void onBind(final FavoriteTripItem item, final FavoriteTripListener listener) {
 		layout.setOnClickListener(v -> listener.onFavoriteClicked(item));
+		layout.setOnLongClickListener(v -> listener.onFavoriteLongClicked(item));
 	}
 
 }

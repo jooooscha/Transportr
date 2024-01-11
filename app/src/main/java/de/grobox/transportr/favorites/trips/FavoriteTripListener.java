@@ -26,6 +26,8 @@ public interface FavoriteTripListener {
 
 	void onFavoriteClicked(FavoriteTripItem item);
 
+	boolean onFavoriteLongClicked(FavoriteTripItem item);
+
 	void onFavoriteChanged(FavoriteTripItem item, boolean isFavorite);
 
 	void onFavoriteDeleted(FavoriteTripItem item);

@@ -167,19 +167,13 @@ public abstract class FavoriteTripsFragment<VM extends SavedSearchesViewModel> e
 			if (item.getTo() == null) {
 				changeHome();
 			} else {
-				// onSpecialLocationClicked(item.getTo());
-				Intent intent = new Intent(getContext(), DeparturesActivity.class);
-				intent.putExtra(WRAP_LOCATION, item.getTo());
-				startActivity(intent);
+				onSpecialLocationClicked(item.getTo());
 			}
 		} else if (item.getType() == WORK) {
 			if (item.getTo() == null) {
 				changeWork();
 			} else {
-				// onSpecialLocationClicked(item.getTo());
-				Intent intent = new Intent(getContext(), DeparturesActivity.class);
-				intent.putExtra(WRAP_LOCATION, item.getTo());
-				startActivity(intent);
+				onSpecialLocationClicked(item.getTo());
 			}
 		} else if (item.getType() == TRIP) {
 			if (item.getFrom() == null || item.getTo() == null) throw new IllegalArgumentException();
@@ -187,6 +181,27 @@ public abstract class FavoriteTripsFragment<VM extends SavedSearchesViewModel> e
 		} else {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	@Override
+	public boolean onFavoriteLongClicked(FavoriteTripItem item) {
+		if (item.getType() == HOME) {
+			Intent intent = new Intent(getContext(), DeparturesActivity.class);
+			intent.putExtra(WRAP_LOCATION, item.getTo());
+			startActivity(intent);
+		} else if (item.getType() == WORK) {
+			Intent intent = new Intent(getContext(), DeparturesActivity.class);
+			intent.putExtra(WRAP_LOCATION, item.getTo());
+			startActivity(intent);
+		} else if (item.getType() == TRIP) {
+			if (item.getFrom() == null || item.getTo() == null) throw new IllegalArgumentException();
+			// search for reversed direction (getTo and getFrom are swapped)
+			findDirections(getContext(), item.getTo(), item.getVia(), item.getFrom(), true, true);
+		} else {
+			throw new IllegalArgumentException();
+		}
+
+		return true;
 	}
 
 	protected abstract void onSpecialLocationClicked(@NonNull WrapLocation location);

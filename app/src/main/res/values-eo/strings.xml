@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="google_play_title" tools:keep="@string/google_play_title">Transportr</string>
   <string name="google_play_short_desc" tools:keep="@string/google_play_short_desc">Malfermkoda asistilo por publika transporto sen reklamoj kaj spurado</string>
-  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc"><![CDATA[
+  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc" tools:ignore="StringFormatInvalid"><![CDATA[
 Transportr estas ne-profit-cela aplikaĵo evoluigata de homoj de la tuta mondo libertempe. Ili volas igi uzadon de publika transporto kiel eble plej facilan por ĉiu. 
 
 Tiu ĉi aplikaĵo uzas datumojn de diversaj lokaj firmaoj de publika transporto kaj liveras unuigitan fasadon por ilin. Oni ne povas verigi korektecon de datumoj do <i>estas nenia garantio</i> pri liverataj informoj.  Uzu nur sub via risko.
@@ -44,7 +44,6 @@ Tiu ĉi aplikaĵo uzas datumojn de diversaj lokaj firmaoj de publika transporto 
   <string name="drawer_departures">Forveturoj</string>
   <string name="tab_about">Pri</string>
   <string name="tab_libraries">Bibliotekoj</string>
-  <string name="about_copyright">© 2013 – 2021 Torsten GROTE\nProgramo laŭ la libera permesilo: GPLv3+</string>
   <string name="about_description">Transportr estas publik-transporta helpilo programita de homoj ĉirkaŭ la mondo por igi uzadon de publika transporto kiel eble facile, kie ajn vi estas.</string>
   <string name="about_warning_title">Averto</string>
   <string name="about_warning_text">Estas neniu garantio pri korekteco de (ekstere-provizataj) datumoj. Bonvolu uzi tiun ĉi aplikaĵon nur sub via risko.</string>
@@ -258,7 +257,6 @@ Tiu ĉi aplikaĵo uzas datumojn de diversaj lokaj firmaoj de publika transporto 
   <string name="np_desc_vgn">Nurenbergo, Fürth, Erlangen, Bayreuth, Bamberg, Schwabach</string>
   <string name="np_name_vgs">saarVV</string>
   <string name="np_desc_vgs">Sarlando, Saarbrücken</string>
-  <string name="np_desc_vms">Mittelsachsen, Chemnitz</string>
   <string name="np_desc_vmv">Meklenburg-Antaŭpomerio, Schwerin</string>
   <string name="np_desc_vrn">Baden-Virtembergo, Rejnland-Palatinato, Manhejmo, Majenco, Treviro</string>
   <string name="np_desc_vrr">Nordrejn-Vestfalujo, Kolonjo, Bonn, Essen, Dortmund, Duseldorfo, Münster, Paderborn, Höxter</string>
@@ -285,10 +283,6 @@ Tiu ĉi aplikaĵo uzas datumojn de diversaj lokaj firmaoj de publika transporto 
   <string name="np_name_nz">Nov-Zelando</string>
   <string name="np_desc_nz">Nov-Zelando, Velingtono, Auckland</string>
   <string name="np_region_poland">Polujo</string>
-  <string name="np_desc_pl">Polujo, fervojo en Polujo</string>
-  <string name="np_name_pl_navitia">Urbaj transport-retoj en Polujo</string>
-  <string name="np_desc_pl_navitia">Varsovio, Vroclavo, Ŝĉecino, Gdansko, Gdinio, Sopot</string>
-  <string name="np_desc_pl_navitia_networks">DLA/Sevibus Siechnice, MPK Autobusy, MPK Tramwaje, Sevibus Wisznia Mała, Sevibus/DLA Długołęka, Warbus Miekinia, ZDiTM Szczecin, A21 Długołęka, Koleje Mazowieckie, Warszawski Transport Publiczny (ZTM Warszawa), ZKM Gdynia, ZTM Gdańsk</string>
   <string name="np_name_spain">Hispanujo</string>
   <string name="np_desc_spain">Madrido, Barcelono, Eŭskujo, Valencio, Alakanto, Majorko, Minorko, Tenerifo, La Palma, Navaro</string>
   <string name="np_name_hungary">Hungarujo</string>

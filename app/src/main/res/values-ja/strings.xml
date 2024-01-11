@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="google_play_title" tools:keep="@string/google_play_title">Transportr - オープンソース公共交通機関</string>
   <string name="google_play_short_desc" tools:keep="@string/google_play_short_desc">無料の公共交通機関アシスタント、広告や追跡はありません</string>
-  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc"><![CDATA[
+  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc" tools:ignore="StringFormatInvalid"><![CDATA[
 Transportr は、世界中の人々が自由な時間に開発した非営利のアプリです。
 すべての人ができるだけ簡単に公共交通機関を利用したいと考えています。
 
@@ -63,7 +63,6 @@ Transportr は頻繁に使用される場所や旅行を保存します。
   <string name="drawer_departures">出発</string>
   <string name="tab_about">アプリについて</string>
   <string name="tab_libraries">ライブラリー</string>
-  <string name="about_copyright">© 2013 – 2018 Torsten Grote\nフリーソフトウェアライセンス: GPLv3+</string>
   <string name="about_description">Transportr は、公共交通機関を世界中の人々ができるだけ簡単に使用できるように開発された、公共交通機関のコンパニオンです。</string>
   <string name="about_warning_title">警告</string>
   <string name="about_warning_text">(外部から提供された) データの正確性は保証されません。 このアプリは自己責任で使用してください。</string>
@@ -269,7 +268,6 @@ Transportr は頻繁に使用される場所や旅行を保存します。
   <string name="np_desc_vbn" tools:keep="@string/np_desc_vbn">ニーダーザクセン、ブレーメン、ブレーマーハーフェン、オルデンブルク (オルデンブルク)、オスナブリュック</string>
   <string name="np_desc_vgn">ニュルンベルク、フュルト、エルランゲン、バイロイト、バンベルク、シュヴァバッハ</string>
   <string name="np_desc_vgs">ザールラント、ザールブリュッケン</string>
-  <string name="np_desc_vms">ミッテルザクセン、ケムニッツ</string>
   <string name="np_desc_vmv">メクレンブルク=フォアポンメルン州、シュヴェリーン</string>
   <string name="np_desc_vrn">バーデン・ヴュルテンベルク州、ラインランド・プファルツ州、マンハイム、マインツ、トリアー</string>
   <string name="np_desc_vrr">ノルトライン・ヴェストファーレン、ケルン、ボン、エッセン、ドルトムント、デュッセルドルフ、ミュンスター、パーダーボルン、ホクスター</string>
@@ -296,10 +294,6 @@ Transportr は頻繁に使用される場所や旅行を保存します。
   <string name="np_name_nz">ニュージーランド</string>
   <string name="np_desc_nz">ニュージーランド、ウェリントン、オークランド</string>
   <string name="np_region_poland">ポーランド</string>
-  <string name="np_desc_pl">ポーランド、ポーランドの鉄道</string>
-  <string name="np_name_pl_navitia">ポーランドの都市交通</string>
-  <string name="np_desc_pl_navitia">ワルシャワ、ブロツラフ、シュチェチン、グダニスク、グディニア、ソポト</string>
-  <string name="np_desc_pl_navitia_networks">DLA/Sevibus Siechnice, MPK Autobusy, MPK Tramwaje, Sevibus Wisznia Mala, Sevibus/DLA Dlugoleka, Warbus Miekinia, ZDiTM Szczecin, A21 Dlugoleka, Koleje Mazowieckie, Warszawski Transport Publiczny (ZTM Warszawa), ZKM Gdynia, ZTM Gdansk</string>
   <string name="np_name_spain">スペイン</string>
   <string name="np_desc_spain">マドリード、バルセロナ、バスク地方、バレンシア、アリカンテ、マヨルカ、メノルカ、テネリフェ、ラ・パルマ、ナバラ</string>
   <string name="np_name_hungary">ハンガリー</string>

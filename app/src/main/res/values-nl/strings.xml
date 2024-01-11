@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="google_play_title" tools:keep="@string/google_play_title">Transportr - open-bron Openbaar Vervoer</string>
   <string name="google_play_short_desc" tools:keep="@string/google_play_short_desc">Gratis openbaarvervoerhulpmiddel zonder reclame of gevolgd te worden</string>
-  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc"><![CDATA[
+  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc" tools:ignore="StringFormatInvalid"><![CDATA[
 Transportr is een niet-commerciële app ontwikkeld door mensen over de hele wereld in hun vrije tijd. Zij willen het gebruik van openbaar vervoer zo makkelijk mogelijk maken voor iedereen.
 
 Deze app gebruikt de gegevens van verschillende lokale openbaar vervoersaanbieders, zoals 9292, NS en Railteam, en geeft deze overzichtelijk weer. De app kan de correctheid van de gegevens niet verifiëren en <i>biedt daarom geen garanties</i> voor de weergegeven informatie. Gebruik op eigen risico.
@@ -44,7 +44,7 @@ Deze app gebruikt de gegevens van verschillende lokale openbaar vervoersaanbiede
   <string name="drawer_departures">Vertrekken</string>
   <string name="tab_about">Over</string>
   <string name="tab_libraries">Bibliotheken</string>
-  <string name="about_copyright">© 2013 – 2021 Torsten Grote\nVrije softwarelicentie: GPLv3+</string>
+  <string name="about_copyright">© 2013 – 2023 Torsten Grote\nVrije softwarelicentie: GPLv3+</string>
   <string name="about_description">Transportr is een openbaar vervoer-hulpmiddel, ontwikkeld door mensen van over de hele wereld om het gebruik van openbaar vervoer zo makkelijk mogelijk te maken.</string>
   <string name="about_warning_title">Waarschuwing</string>
   <string name="about_warning_text">Wij geven geen garantie op de (extern aangeleverde) gegevens. Gebruik de app op eigen risico.</string>
@@ -258,7 +258,6 @@ Deze app gebruikt de gegevens van verschillende lokale openbaar vervoersaanbiede
   <string name="np_desc_vgn">Neurenberg, Fürth, Erlangen, Bayreuth, Bamberg, Schwabach</string>
   <string name="np_name_vgs">saarVV</string>
   <string name="np_desc_vgs">Saarland, Saarbrücken</string>
-  <string name="np_desc_vms">Mittelsachsen, Chemnitz</string>
   <string name="np_desc_vmv">Mecklenburg-Voor-Pommeren, Schwerin</string>
   <string name="np_desc_vrn">Baden-Württemberg, Rijnland-Palts, Mannheim, Mainz, Trier</string>
   <string name="np_desc_vrr">Noordrijn-Westfalen, Keulen, Bonn, Essen, Dortmund, Düsseldorf, Münster, Paderborn, Höxter</string>
@@ -285,10 +284,6 @@ Deze app gebruikt de gegevens van verschillende lokale openbaar vervoersaanbiede
   <string name="np_name_nz">Nieuw-Zeeland</string>
   <string name="np_desc_nz">Nieuw-Zeeland, Wellington, Auckland</string>
   <string name="np_region_poland">Polen</string>
-  <string name="np_desc_pl">Polen, spoorwegen in Polen</string>
-  <string name="np_name_pl_navitia">Gemeentelijk vervoer in Polen</string>
-  <string name="np_desc_pl_navitia">Warschau, Wroclaw, Szczecin, Danzig, Gdynia, Sopot</string>
-  <string name="np_desc_pl_navitia_networks">DLA/Sevibus Siechnice, MPK Autobusy, MPK Tramwaje, Sevibus Wisznia Mala, Sevibus/DLA Dlugoleka, Warbus Miekinia, ZDiTM Szczecin, A21 Dlugoleka, Koleje Mazowieckie, Warszawski Transport Publiczny (ZTM Warszawa), ZKM Gdynia, ZTM Gdansk</string>
   <string name="np_name_spain">Spanje</string>
   <string name="np_desc_spain">Madrid, Barcelona, Baskenland, Valencia, Alicante, Mallorca, Menorca, Tenerife, La Palma, Navarra</string>
   <string name="np_name_hungary">Hongarije</string>

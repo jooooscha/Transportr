@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<changelog xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
+<changelog xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedResources">
 
-    <release version="2.1.3" versioncode="121">
+    <release
+        version="2.2.0"
+        versioncode="124">
+        <change>Switch map library to MapLibre - finally bringing Transportr back to F-Droid!</change>
+        <change>Remember preferred means of transport for future searches (thanks Prat!)</change>
+        <change>Fix minor issues on About page and with the time picker (thanks Altonss!)</change>
+        <change>Fix and re-add formerly broken regions: SBB (thanks Tobias!), VVO, AVV (Augsburg), GVH, VRS</change>
+        <change>Remove regions where information is no longer available: VOR, STV, VVV, SNCB, 9292, TFI</change>
+        <change>Remove regions that are no longer served by Navitia: Finland, Portugal, Hungary, Czech Republic, Ghana, California, Oregon, New York, Ontario, Quebec, British Colombia, Costa Rica, Nicaragua, Florianópolis (Brazil), Brazil, New Zealand</change>
+    </release>
+
+    <release
+        version="2.1.5"
+        versioncode="123">
+        <change>Support themed adaptive app icon.</change>
+        <change>Require at least Android 5 now.</change>
+        <change>Fix bug where calendar and map apps are not found.</change>
+        <change>Update PTE data library - remove VMS (Mittelsachsen, Chemnitz), VRS (Cologne, Bonn), and PKP (Poland, railways in Poland).</change>
+    </release>
+
+    <release
+        version="2.1.4"
+        versioncode="122">
+        <change>Update PTE data library, fixes issues with Berlin BVG, removes SBB</change>
+    </release>
+
+    <release
+        version="2.1.3"
+        versioncode="121">
         <change>Update PTE data library, fixes issues in Berlin</change>
     </release>
 
-    <release version="2.1.2" versioncode="120">
+    <release
+        version="2.1.2"
+        versioncode="120">
         <change>Prevent crash on first startup</change>
     </release>
 
-    <release version="2.1.1" versioncode="119">
+    <release
+        version="2.1.1"
+        versioncode="119">
         <change>Fix and (re-)add several regions: VMS, VTT, saarVV, VBN, nah.sh, AVV (Aachen), Luxembourg, BART, CMTA</change>
         <change>Fix issues related to location sharing</change>
         <change>Fix rare app crash and UI glitches in directions form</change>

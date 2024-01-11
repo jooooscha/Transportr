@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="google_play_title" tools:keep="@string/google_play_title">Transportr - Kollektivtrafik med öppen källkod</string>
   <string name="google_play_short_desc" tools:keep="@string/google_play_short_desc">Gratis kollektivtrafikassistent utan annonser eller spårning</string>
-  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc"><![CDATA[
+  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc" tools:ignore="StringFormatInvalid"><![CDATA[
 Transportr är en ideell app som utvecklats av personer runt om i världen på fritiden.
 De vill göra användningen av kollektivtrafiken så enkel som möjligt för alla.
 
@@ -63,7 +63,6 @@ och vet alltid var du inte ska missa var du ska gå av bussen.
   <string name="drawer_departures">Avgångar</string>
   <string name="tab_about">Om</string>
   <string name="tab_libraries">Bibliotek</string>
-  <string name="about_copyright">© 2013 – 2018 Torsten Grote\nLicens för fri programvara: GPLv3+</string>
   <string name="about_description">Transportr är en kollektivtrafikshjälpmedel som utvecklats av personer runt om i världen för att göra användning av kollektivtrafik så enkelt som möjligt var du än befinner dig.</string>
   <string name="about_warning_title">Varning</string>
   <string name="about_warning_text">Det finns ingen garanti för att uppgifterna (externt tillhandahållna) är korrekta. Använd denna app endast på egen risk.</string>
@@ -271,7 +270,6 @@ och vet alltid var du inte ska missa var du ska gå av bussen.
   <string name="np_desc_vbn" tools:keep="@string/np_desc_vbn">Niedersachsen, Bremen, Bremerhaven, Oldenburg (Oldenburg), Osnabrück</string>
   <string name="np_desc_vgn">Nürnberg, Fürth, Erlangen, Bayreuth, Bamberg, Schwabach</string>
   <string name="np_desc_vgs">Saarland, Saarbrücken</string>
-  <string name="np_desc_vms">Centrala Sachsen, Chemnitz</string>
   <string name="np_desc_vmv">Mecklenburg-Vorpommern, Schwerin</string>
   <string name="np_desc_vrn">Baden-Württemberg, Rheinland-Pfalz, Mannheim, Mainz, Trier</string>
   <string name="np_desc_vrr">Nordrhein-Westfalen, Köln, Bonn, Essen, Dortmund, Düsseldorf, Münster, Paderborn, Höxter</string>
@@ -298,10 +296,6 @@ och vet alltid var du inte ska missa var du ska gå av bussen.
   <string name="np_name_nz">Nya Zeeland</string>
   <string name="np_desc_nz">Nya Zeeland, Wellington, Auckland</string>
   <string name="np_region_poland">Polen</string>
-  <string name="np_desc_pl">Polen, järnvägar i Polen</string>
-  <string name="np_name_pl_navitia">Kommunala transportmedel i Polen</string>
-  <string name="np_desc_pl_navitia">Warszawa, Wroclaw, Szczecin, Gdansk, Gdynia, Sopot</string>
-  <string name="np_desc_pl_navitia_networks">DLA/Sevibus Siechnice, MPK Autobusy, MPK Tramwaje, Sevibus Wisznia Mala, Sevibus/DLA Dlugoleka, Warbus Miekinia, ZDiTM Szczecin, A21 Dlugoleka, Koleje Mazowieckie, Warszawski Transport Publiczny (ZTM Warszawa), ZKM Gdynia, ZTM Gdansk</string>
   <string name="np_name_spain">Spanien</string>
   <string name="np_desc_spain">Madrid, Barcelona, Baskien, Valencia, Alicante, Mallorca, Menorca, Teneriffa, La Palma, Navarra</string>
   <string name="np_name_hungary">Ungern</string>

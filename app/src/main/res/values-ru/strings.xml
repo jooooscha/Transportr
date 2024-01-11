@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="google_play_title" tools:keep="@string/google_play_title">Transportr - транспорт с открытым кодом</string>
   <string name="google_play_short_desc" tools:keep="@string/google_play_short_desc">Бесплатный ассистент общественного транспорта без рекламы и без отслеживания</string>
-  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc"><![CDATA[
+  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc" tools:ignore="StringFormatInvalid"><![CDATA[
 Transportr это некоммерческое приложение, разработанное людьми со всего мира.
 Они хотят сделать использование общественного транспорта максимально доступным для всех.
 
@@ -63,7 +63,6 @@ Transportr сохраняет часто используемые местопо
   <string name="drawer_departures">Отправление</string>
   <string name="tab_about">О приложении</string>
   <string name="tab_libraries">Библиотека</string>
-  <string name="about_copyright">© 2013 – 2018 Torsten Grote\nFree Software License: GPLv3+</string>
   <string name="about_description">Transportr является помощником общественного транспорта, разработанный людьми по всему миру, чтобы сделать использование общественного транспорта как можно проще там, где вы находитесь.</string>
   <string name="about_warning_title">Предупреждение</string>
   <string name="about_warning_text">Нет никакой гарантии правильности (предоставленных) данных. Пожалуйста, используйте это приложение только на свой страх и риск.</string>
@@ -259,7 +258,6 @@ Transportr сохраняет часто используемые местопо
   <string name="np_desc_vbn" tools:keep="@string/np_desc_vbn">Нижняя Саксония, Бремен, Bremerhaven, Ольденбург (Oldenburg), Оснабрюк</string>
   <string name="np_desc_vgn">Nuremberg, Фюрт, Эрланген, Байройт, Бамберг, Город Швабах</string>
   <string name="np_desc_vgs">Саар, Саарбрюккен</string>
-  <string name="np_desc_vms">Средняя Саксония, Хемниц</string>
   <string name="np_desc_vmv">Мекленбург-Передняя Померания, Шверин</string>
   <string name="np_desc_vrn">Баден-Вюртемберг, Rhineland-Palatinate, Мангейм, Майнц, Трир</string>
   <string name="np_desc_vrr">Северный Рейн-Вестфалия, Кельн, Бонн, Эссен, Дортмунд, Дюссельдорф, Мюнстер, Падерборн, Хекстер</string>
@@ -286,9 +284,6 @@ Transportr сохраняет часто используемые местопо
   <string name="np_name_nz">Новая Зеландия</string>
   <string name="np_desc_nz">Новая Зеландия, Веллингтон, Окленд</string>
   <string name="np_region_poland">Польша</string>
-  <string name="np_desc_pl">Польша, железные дороги в Польше</string>
-  <string name="np_name_pl_navitia">Городской транспорт Польши</string>
-  <string name="np_desc_pl_navitia">Варшава, Вроцлав, Щецин, Гданьск, Гдыня, Сопот</string>
   <string name="np_name_spain">Испания</string>
   <string name="np_desc_spain">Мадрид, Барселона, Страна Басков, Валенсия, Аликанте, Майорка, Менорка, Тенерифе, Ла-Пальма, Наварра</string>
   <string name="np_name_hungary">Венгрия</string>

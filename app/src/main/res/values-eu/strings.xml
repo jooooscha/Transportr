@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="google_play_title" tools:keep="@string/google_play_title">Transportr - Garraio publiko librea</string>
   <string name="google_play_short_desc" tools:keep="@string/google_play_short_desc">Garraio publikoarentzako aplikazio lagungarria, iragarki eta tracker gabe</string>
-  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc"><![CDATA[
+  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc" tools:ignore="StringFormatInvalid"><![CDATA[
 Transportr irabazi asmorik gabeko aplikazioa bat da, mundu osoko pertsonek bere denbora librean garatua.
 
 Garraio publikoa erabiltzea denontzat ahal beste erraztu nahi dute
@@ -63,7 +63,6 @@ eta beti daki non zauden autobusetik non jaitsi jakin dezazun.
   <string name="drawer_departures">Irteerak</string>
   <string name="tab_about">Honi buruz</string>
   <string name="tab_libraries">Liburutegiak</string>
-  <string name="about_copyright">© 2013 – 2018 Torsten Grote\Software lizentzia librea: GPLv3+</string>
   <string name="about_description">Transportr garraio publikorako aplikazio lagungarri bat da, mundu osoko jendeak garatutakoa, garraio publikoa erabiltzea ahalik eta errazena izan dadin zauden tokian zaudela.</string>
   <string name="about_warning_title">Abisua</string>
   <string name="about_warning_text">Ezin da bermatu (kanpotik eskuratutako) informazioaren zehaztasuna. Erabili aplikazio hau zure ardurapean.</string>
@@ -273,7 +272,6 @@ eta beti daki non zauden autobusetik non jaitsi jakin dezazun.
   <string name="np_desc_vbn" tools:keep="@string/np_desc_vbn">Saxonia behera Bremen, Bremerhaven, Oldenburg (Oldenburg), Osnabrück</string>
   <string name="np_desc_vgn">Nuremberg, Fürth, Erlangen, Bayreuth, Bamberg, Schwabach</string>
   <string name="np_desc_vgs">Sarre, Saarbrücken</string>
-  <string name="np_desc_vms">Mittelsachsen, Chemnitz</string>
   <string name="np_desc_vmv">Mecklenburg-Vorpommern, Schwerin</string>
   <string name="np_desc_vrn">Baden-Württemberg, Renania-Palatinatua, Mannheim, Mainz, Trier</string>
   <string name="np_desc_vrr">Ipar Rhine-Westphalia, Kolonia, Bonn, Essen, Dortmund, Düsseldorf, Münster, Paderborn, Höxter</string>
@@ -300,10 +298,6 @@ eta beti daki non zauden autobusetik non jaitsi jakin dezazun.
   <string name="np_name_nz">Zeelanda Berria</string>
   <string name="np_desc_nz">Zeelanda Berria, Wellington, Auckland</string>
   <string name="np_region_poland">Polonia</string>
-  <string name="np_desc_pl">Polonia, Poloniako trenbideak</string>
-  <string name="np_name_pl_navitia">Poloniako garraio munizipalak</string>
-  <string name="np_desc_pl_navitia">Warsaw, Wroclaw, Szczecin, Gdansk, Gdynia, Sopot</string>
-  <string name="np_desc_pl_navitia_networks">DLA/Sevibus Siechnice, MPK Autobusy, MPK Tramwaje, Sevibus Wisznia Mala, Sevibus/DLA Dlugoleka, Warbus Miekinia, ZDiTM Szczecin, A21 Dlugoleka, Koleje Mazowieckie, Warszawski Transport Publiczny (ZTM Warszawa), ZKM Gdynia, ZTM Gdansk</string>
   <string name="np_name_spain">Espainia</string>
   <string name="np_desc_spain">Madril, Bartzelona, Euskadi, Nafarroa, Valentzia, Alacant, Mallorca, Menorca, Tenerife, La Palma</string>
   <string name="np_name_hungary">Hungaria</string>

@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="google_play_title" tools:keep="@string/google_play_title">Transportr - عبور و مرور عمومی متن باز</string>
   <string name="google_play_short_desc" tools:keep="@string/google_play_short_desc">دستیار حمل و نقل عمومی رایگان بدون تبلیغات یا ردیابی</string>
-  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc"><![CDATA[
+  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc" tools:ignore="StringFormatInvalid"><![CDATA[
 Transportr یک برنامه ناسودبر بوده که توسط افراد در سراسر جهان در اوقات فراغتشان توسعه داده شده است.
 آن ها قصد دارند تا استفاده از حمل و نقل عمومی را برای همگان به سادگی هر چه تمام تر کنند.
 
@@ -61,8 +61,6 @@ Transportr مکان ها و سفر های انجام شده متداول را ذ
   <string name="drawer_departures">حرکت ها</string>
   <string name="tab_about">درباره</string>
   <string name="tab_libraries">کتابخانه ها</string>
-  <string name="about_copyright">© 2013 – 2018 تورستن گروت
-لایسنس نرم افزار آزاد: +GPLv3</string>
   <string name="about_description">Transportr یک همران حمل و نقل عمومی است که توسط افرادی در سرتاسر دنیا ایجاد شده تا حمل و نقل عمومی را تا جای ممکن در هرجایی که هستید آسان کند.</string>
   <string name="about_warning_title">هشدار</string>
   <string name="about_warning_text">هیچ گارانتی برای درسی داده ها ( داده های از بیرون تامین شده ) وجود ندارد. لطفا با در نظر گرفتن ریسک از این برنامه استفاده کنید.</string>
@@ -268,7 +266,6 @@ Transportr مکان ها و سفر های انجام شده متداول را ذ
   <string name="np_desc_vbn" tools:keep="@string/np_desc_vbn">نیدرزاکسن، برمن، برمرهافن، اولدنبورگ (اولدنبورگ)، اسنابروک</string>
   <string name="np_desc_vgn">نورنبرگ، فورت، ارلانگن، بایرویت، بامبرگ، شواباخ</string>
   <string name="np_desc_vgs">زارلاند، زاربروکن</string>
-  <string name="np_desc_vms">میتل‌زاکسن، کمنیتس</string>
   <string name="np_desc_vmv">مکلنبورگ-فورپومرن، شورین</string>
   <string name="np_desc_vrn">بادن-وورتمبرگ، راینلاند-فالتس، مانهایم، ماینتس، تری‌یر</string>
   <string name="np_desc_vrr">نوردراین-وستفالن، کلن، بن، اسن، دورتموند، دوسلدورف، مونستر، پادربورن، هخستر</string>
@@ -295,10 +292,6 @@ Transportr مکان ها و سفر های انجام شده متداول را ذ
   <string name="np_name_nz">نیوزلند</string>
   <string name="np_desc_nz">نیوزیلند، ولینگتون، آوکلند</string>
   <string name="np_region_poland">لهستان</string>
-  <string name="np_desc_pl">لهستان، راه آهن ها در لهستان</string>
-  <string name="np_name_pl_navitia">حمل و نقل های شهری لهستان</string>
-  <string name="np_desc_pl_navitia">ورشو، وروتسواف، شچچین، گدنیا، سوپوت</string>
-  <string name="np_desc_pl_navitia_networks">DLA/Sevibus Siechnice, MPK Autobusy, MPK Tramwaje, Sevibus Wisznia Mala, Sevibus/DLA Dlugoleka, Warbus Miekinia, ZDiTM Szczecin, A21 Dlugoleka, Koleje Mazowieckie, Warszawski Transport Publiczny (ZTM Warszawa), ZKM Gdynia, ZTM Gdansk</string>
   <string name="np_name_spain">اسپانیا</string>
   <string name="np_desc_spain">مادرید، بارسلون، سرزمین باسک، والنسیا، آلیکانته، مایورکا، مینورکا، تنریف، لا پالما، نابارا</string>
   <string name="np_name_hungary">مجارستان</string>

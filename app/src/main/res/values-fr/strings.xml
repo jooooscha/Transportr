@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="google_play_title" tools:keep="@string/google_play_title">Transportr — Appli libre de transport en commun</string>
   <string name="google_play_short_desc" tools:keep="@string/google_play_short_desc">Assistant gratuit de transport en commun sans publicité ni suivi à la trace</string>
-  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc"><![CDATA[
+  <string name="google_play_full_desc" tools:keep="@string/google_play_full_desc" tools:ignore="StringFormatInvalid"><![CDATA[
 Transportr est une appli sans but lucratif développée par des personnes du monde entier pendant leur temps libre.
 Elles souhaitent faciliter autant que possible l’utilisation des transports en commun, pour tous.
 
@@ -53,7 +53,6 @@ Elle n’utilise pas non plus des outils de suivi comme Google Analytics pour vo
   <string name="drawer_departures">Départs</string>
   <string name="tab_about">À propos</string>
   <string name="tab_libraries">Bibliothèques</string>
-  <string name="about_copyright">© 2013 à 2021 Torsten Grote\nLicence de logiciel libre : GPLv3+</string>
   <string name="about_description">Transportr est un compagnon de transports en commun développé par des personnes partout dans le monde afin de faciliter autant que possible l’utilisation des transports en commun où que vous soyez.</string>
   <string name="about_warning_title">Avertissement</string>
   <string name="about_warning_text">Il n’existe aucune garantie quant à l’exactitude des données (provenant de sources externes). Veuillez utiliser cette appli à vos propres risques.</string>
@@ -141,6 +140,7 @@ Elle n’utilise pas non plus des outils de suivi comme Google Analytics pour vo
   <string name="meter">%d m</string>
   <plurals name="stops">
     <item quantity="one">%d arrêt</item>
+    <item quantity="many">%d arrêts</item>
     <item quantity="other">%d arrêts</item>
   </plurals>
   <!--This is the platform or position where a train will depart or arrive. Please keep it short as it will be shown after the station name.-->
@@ -267,7 +267,6 @@ Elle n’utilise pas non plus des outils de suivi comme Google Analytics pour vo
   <string name="np_desc_vgn">Nuremberg, Fürth, Erlangue, Bayreuth, Bamberg, Schwabach</string>
   <string name="np_name_vgs">saarVV</string>
   <string name="np_desc_vgs">Sarre, Sarrebruck</string>
-  <string name="np_desc_vms">Saxe centrale, Chemnitz</string>
   <string name="np_desc_vmv">Mecklembourg-Poméranie antérieure, Schwerin</string>
   <string name="np_desc_vrn">Bade-Wurtemberg, Rhénanie-Palatinat, Mannheim, Mayence, Trèves</string>
   <string name="np_desc_vrr">Rhénanie-du-Nord-Westphalie, Cologne, Bonn, Essen, Dortmund, Düsseldorf, Münster, Paderborn, Höxter</string>
@@ -294,10 +293,6 @@ Elle n’utilise pas non plus des outils de suivi comme Google Analytics pour vo
   <string name="np_name_nz">Nouvelle-Zélande</string>
   <string name="np_desc_nz">Nouvelle-Zélande, Wellington, Auckland</string>
   <string name="np_region_poland">Pologne</string>
-  <string name="np_desc_pl">Pologne, chemins de fer en Pologne</string>
-  <string name="np_name_pl_navitia">Transports municipaux de Pologne</string>
-  <string name="np_desc_pl_navitia">Varsovie, Wrocław, Szczecin, Gdańsk, Gdynia, Sopot</string>
-  <string name="np_desc_pl_navitia_networks">DLA/Sevibus Siechnice, MPK Autobusy, MPK Tramwaje, Sevibus Wisznia Mala, Sevibus/DLA Dlugoleka, Warbus Miekinia, ZDiTM Szczecin, A21 Dlugoleka, Koleje Mazowieckie, Warszawski Transport Publiczny (ZTM Warszawa), ZKM Gdynia, ZTM Gdansk</string>
   <string name="np_name_spain">Espagne</string>
   <string name="np_desc_spain">Madrid, Barcelone, Pays basque, Valence, Alicante, Majorque, Minore, Tenerife, La Palma, Navarre</string>
   <string name="np_name_hungary">Hongrie</string>

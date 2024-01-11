@@ -83,6 +83,7 @@ abstract class BaseMapFragment : TransportrFragment(), OnMapReadyCallback {
     @CallSuper
     override fun onMapReady(mapboxMap: MapboxMap) {
         map = mapboxMap
+        map?.gesturesManager?.removeRotateGestureListener()
         activity?.run {
             // work-around to force update map style after theme switching
             obtainStyledAttributes(intArrayOf(R.attr.mapStyle)).apply {

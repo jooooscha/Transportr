@@ -19,6 +19,7 @@
 
 package de.grobox.transportr.trips.detail
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -39,7 +40,8 @@ internal class LegAdapter internal constructor(
 
     override fun onBindViewHolder(ui: LegViewHolder, i: Int) {
         val leg = legs[i]
-        ui.bind(leg, getLegType(i))
+        val nextDeparture = if (i+1 < legs.size) legs[i+1].departureTime else null
+        ui.bind(leg, getLegType(i), nextDeparture)
     }
 
     override fun getItemCount(): Int {

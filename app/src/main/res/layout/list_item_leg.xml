@@ -243,4 +243,14 @@
 		app:layout_constraintTop_toTopOf="@+id/toLocation"
 		app:srcCompat="@drawable/ic_more_vert"/>
 
+	<TextView
+		android:id="@+id/interLegTime"
+		app:layout_constraintTop_toBottomOf="@id/toCircle"
+		app:layout_constraintStart_toStartOf="parent"
+		android:paddingStart="20dp"
+		android:paddingEnd="20dp"
+		android:padding="10dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

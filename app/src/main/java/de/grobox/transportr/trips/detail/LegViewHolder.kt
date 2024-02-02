@@ -47,6 +47,7 @@ import de.schildbach.pte.dto.Stop
 import de.schildbach.pte.dto.Style.RED
 import de.schildbach.pte.dto.Trip.*
 import kotlinx.android.synthetic.main.list_item_leg.view.*
+import java.util.Date
 
 
 internal class LegViewHolder(v: View, private val listener: LegClickListener, private val showLineName: Boolean) : BaseViewHolder(v) {
@@ -76,9 +77,11 @@ internal class LegViewHolder(v: View, private val listener: LegClickListener, pr
     private val toLocation: TextView = v.toLocation
     private val toButton: ImageButton = v.toButton
 
+    private val interLegTime: TextView = v.interLegTime
+
     private val adapter = StopAdapter(listener)
 
-    fun bind(leg: Leg, legType: LegType) {
+    fun bind(leg: Leg, legType: LegType, nextDeparture: Date?) {
         // Locations
         fromLocation.text = getLocationName(leg.departure)
         toLocation.text = getLocationName(leg.arrival)
@@ -114,6 +117,12 @@ internal class LegViewHolder(v: View, private val listener: LegClickListener, pr
             bindPublic(leg)
         } else if (leg is Individual) {
             bindIndividual(leg)
+        }
+
+        // show time between this leg arrival and next leg departure
+        nextDeparture?.let {
+            val time = formatDuration(leg.arrivalTime, nextDeparture)
+            interLegTime.text = context.getString(R.string.time_to_change, time)
         }
     }
 

@@ -465,5 +465,6 @@ and always knows where you are to not miss where to get off the bus.
 	<string name="swedish">Swedish</string>
 	<string name="ukrainian">Ukrainian</string>
 	<string name="danish">Danish</string>
+	<string name="time_to_change">Time to change: %1$s</string>
 
 </resources>

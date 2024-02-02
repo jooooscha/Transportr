@@ -19,7 +19,10 @@
 
 package de.grobox.transportr.trips.detail
 
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.text.Html.fromHtml
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -215,6 +218,7 @@ internal class LegViewHolder(v: View, private val listener: LegClickListener, pr
     @ColorInt
     private fun getLineColor(line: Line): Int {
         if (line.style == null) return DEFAULT_LINE_COLOR
+        if (line.style!!.backgroundColor == -1) return 0 // replace complete white with black, because the background is already white
         if (line.style!!.backgroundColor != 0) return line.style!!.backgroundColor
         if (line.style!!.backgroundColor2 != 0) return line.style!!.backgroundColor2
         if (line.style!!.foregroundColor != 0) return line.style!!.foregroundColor

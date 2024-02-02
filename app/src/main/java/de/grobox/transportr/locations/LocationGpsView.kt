@@ -80,6 +80,10 @@ class LocationGpsView(context: Context, attrs: AttributeSet) : LocationView(cont
         ui.clear.visibility = VISIBLE
     }
 
+    fun searchHasText(): Boolean {
+        return ui.location.text.isNotEmpty()
+    }
+
     fun clearSearching() {
         if (!isSearching) return
 

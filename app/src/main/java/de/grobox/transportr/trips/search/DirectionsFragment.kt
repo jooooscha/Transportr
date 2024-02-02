@@ -249,9 +249,14 @@ class DirectionsFragment : TransportrFragment() {
         fromLocation.setSearching()
         toLocation.requestFocus()
         viewModel.locationLiveData.observe(viewLifecycleOwner) { location ->
-            viewModel.setFromLocation(location)
-            viewModel.search()
-            viewModel.locationLiveData.removeObservers(viewLifecycleOwner)
+            if (fromLocation.searchHasText()) {
+                // prevent gps location from overriding already entered text from user
+                viewModel.locationLiveData.removeObservers(viewLifecycleOwner)
+            } else {
+                viewModel.setFromLocation(location)
+                viewModel.search()
+                viewModel.locationLiveData.removeObservers(viewLifecycleOwner)
+            }
         }
     }
 

@@ -30,6 +30,7 @@
 
 	<ImageView
 		android:id="@+id/logo"
+		android:visibility="gone"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:padding="4dp"
@@ -43,6 +44,7 @@
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:padding="4dp"
+		android:visibility="gone"
 		android:textSize="12sp"
 		android:text="@string/map_attribution"
 		android:textColorLink="?android:textColorTertiary"

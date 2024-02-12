@@ -62,7 +62,6 @@ class DirectionsActivity : TransportrActivity(), OnOffsetChangedListener {
 
     private val timeUpdater: CountDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1000 * 30) {
         override fun onTick(millisUntilFinished: Long) {
-            Log.d("timer", "$millisUntilFinished tick")
             viewModel.timeUpdate.trigger()
         }
         override fun onFinish() {}

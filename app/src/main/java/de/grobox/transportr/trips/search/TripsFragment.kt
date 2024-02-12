@@ -21,7 +21,6 @@ package de.grobox.transportr.trips.search
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.util.Log
 import android.util.Pair
 import android.view.LayoutInflater
@@ -29,7 +28,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,12 +40,13 @@ import de.grobox.transportr.trips.search.TripAdapter.OnTripClickListener
 import de.grobox.transportr.trips.search.TripsRepository.QueryMoreState
 import de.grobox.transportr.ui.LceAnimator
 import de.grobox.transportr.utils.Linkify
-import de.grobox.transportr.utils.TransportrUtils.getDragDistance
 import de.schildbach.pte.dto.Trip
-import kotlinx.android.synthetic.main.activity_map.search
 import kotlinx.android.synthetic.main.fragment_trips.*
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Timer
+import java.util.TimerTask
 import java.util.regex.Pattern
-import javax.annotation.ParametersAreNonnullByDefault
 import javax.inject.Inject
 
 class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListener {
@@ -59,6 +58,9 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
     
     private val adapter = TripAdapter(this)
     private var queryMoreDirection = SwipyRefreshLayoutDirection.BOTH
+    private var secondsSinceUpdate: Int = 0
+
+    private var timer = Timer()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_trips, container, false)
@@ -85,7 +87,7 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
         viewModel.queryError.observe(viewLifecycleOwner, { error -> onError(error) })
         viewModel.queryPTEError.observe(viewLifecycleOwner, { error -> onPTEError(error) })
         viewModel.queryMoreError.observe(viewLifecycleOwner, { error -> onMoreError(error) })
-        viewModel.timeUpdate.observe(viewLifecycleOwner, { adapter.notifyDataSetChanged() })
+        viewModel.timeUpdate.observe(viewLifecycleOwner, { onTimeUpdate() })
         adapter.setHasStableIds(false)
         list.adapter = adapter
         LceAnimator.showLoading(progressBar, list, errorLayout)
@@ -100,6 +102,11 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
             viewModel.searchMore(true)
             searchMoreLaterProgressBar.visibility = VISIBLE
         }
+    }
+
+    private fun onTimeUpdate() {
+        adapter.notifyDataSetChanged()
+        secondsSinceUpdate = 0
     }
 
     override fun onRefresh(direction: SwipyRefreshLayoutDirection) {
@@ -164,6 +171,32 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
                 putExtra(TripDetailActivity.TO, viewModel.toLocation.value)
             }
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val lastUpdateTask = object : TimerTask() {
+            @SuppressLint("SetTextI18n")
+            override fun run() {
+                secondsSinceUpdate += 1
+                if (secondsSinceUpdate > 60) {
+                    val minutes = secondsSinceUpdate / 60 // division rounding down
+                    runOnUiThread { last_update_text.text = "Last updated ${minutes}m ago" }
+                } else {
+                    runOnUiThread { last_update_text.text = "Live updated" }
+                }
+            }
+        }
+
+        timer = Timer()
+        timer.scheduleAtFixedRate(lastUpdateTask, 0, 1000)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        timer.cancel()
+        timer.purge()
     }
 
     companion object {

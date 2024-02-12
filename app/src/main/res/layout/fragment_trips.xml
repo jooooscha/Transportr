@@ -36,7 +36,8 @@
 					tools:ignore="HardcodedText" />
 
 				<TextView
-					android:text="Last updated: ..."
+					android:text="Live updated"
+					android:id="@+id/last_update_text"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintTop_toTopOf="parent"
 					app:layout_constraintBottom_toBottomOf="parent"

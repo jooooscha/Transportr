@@ -247,7 +247,7 @@ class DirectionsFragment : TransportrFragment() {
             return
         }
         fromLocation.setSearching()
-        toLocation.requestFocus()
+        // toLocation.requestFocus() // don't give focus to 'toLocation' card when searching (I don't like this behavior)
         viewModel.locationLiveData.observe(viewLifecycleOwner) { location ->
             if (fromLocation.searchHasText()) {
                 // prevent gps location from overriding already entered text from user

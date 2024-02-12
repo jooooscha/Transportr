@@ -22,7 +22,9 @@ package de.grobox.transportr.trips.search
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.MenuItem
+import android.view.View.VISIBLE
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
@@ -36,6 +38,7 @@ import de.grobox.transportr.trips.search.SavedSearchesFragment.HomePickerFragmen
 import de.grobox.transportr.trips.search.SavedSearchesFragment.WorkPickerFragment
 import de.grobox.transportr.utils.Constants.*
 import kotlinx.android.synthetic.main.activity_directions.*
+import kotlinx.android.synthetic.main.fragment_directions_form.fromLocation
 import javax.inject.Inject
 
 class DirectionsActivity : TransportrActivity(), OnOffsetChangedListener {
@@ -72,6 +75,12 @@ class DirectionsActivity : TransportrActivity(), OnOffsetChangedListener {
         // get view model and observe data
         viewModel = ViewModelProvider(this, viewModelFactory).get(DirectionsViewModel::class.java)
         viewModel.showTrips.observe(this, Observer { showTrips() })
+
+        fromLocation.searchGpsButton.setOnClickListener {
+            Log.d("gpssearch", "searching for GPS (from)")
+            viewModel.setFromLocation(null)
+            viewModel.findGpsLocation.setValue(FavLocationType.FROM)
+        }
 
         appBarLayout.addOnOffsetChangedListener(this)
 

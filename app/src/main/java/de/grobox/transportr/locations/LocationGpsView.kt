@@ -35,6 +35,9 @@ class LocationGpsView(context: Context, attrs: AttributeSet) : LocationView(cont
     var isSearching = false
         private set
 
+    var searchGpsButton = ui.searchGpsButton
+        private set
+
     init {
         ui.location.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -48,6 +51,8 @@ class LocationGpsView(context: Context, attrs: AttributeSet) : LocationView(cont
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
         })
+
+        ui.searchGpsButton.visibility = VISIBLE
     }
 
     override fun setLocation(loc: WrapLocation?, icon: Int, setText: Boolean) {
@@ -78,6 +83,8 @@ class LocationGpsView(context: Context, attrs: AttributeSet) : LocationView(cont
 
         ui.location.setHint(R.string.stations_searching_position)
         ui.clear.visibility = VISIBLE
+
+        ui.searchGpsButton.visibility = GONE
     }
 
     fun searchHasText(): Boolean {
@@ -91,6 +98,8 @@ class LocationGpsView(context: Context, attrs: AttributeSet) : LocationView(cont
         ui.location.hint = hint
 
         isSearching = false
+
+        ui.searchGpsButton.visibility = VISIBLE
     }
 
 }

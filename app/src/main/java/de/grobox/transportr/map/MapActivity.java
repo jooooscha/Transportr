@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.os.StrictMode.ThreadPolicy;
 import android.os.StrictMode.VmPolicy;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -34,6 +35,7 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
@@ -57,6 +59,7 @@ import static de.grobox.transportr.locations.WrapLocation.WrapType.GPS;
 import static de.grobox.transportr.trips.search.DirectionsActivity.ACTION_SEARCH;
 import static de.grobox.transportr.utils.Constants.WRAP_LOCATION;
 import static de.grobox.transportr.utils.IntentUtils.findDirections;
+import static de.grobox.transportr.utils.IntentUtils.findNearbyStations;
 import static uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt.STATE_DISMISSED;
 import static uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt.STATE_FOCAL_PRESSED;
 
@@ -136,6 +139,22 @@ public class MapActivity extends DrawerActivity implements LocationViewListener 
 		} else {
 			locationFragment = (LocationFragment) getSupportFragmentManager().findFragmentByTag(LocationFragment.TAG);
 		}
+
+
+		// don't close app on first back pressed
+
+		OnBackPressedCallback onBackPressedCallback = new OnBackPressedCallback(true /* enabled by default */) {
+			@Override
+			public void handleOnBackPressed() {
+				viewModel.selectLocation(null);
+				search.setLocation(null);
+				closeDrawer();
+				showSavedSearches();
+				recreate();
+			}
+		};
+		getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
+
 	}
 
 	private void showSavedSearches() {
@@ -250,5 +269,4 @@ public class MapActivity extends DrawerActivity implements LocationViewListener 
 		vmPolicy.penaltyLog();
 		StrictMode.setVmPolicy(vmPolicy.build());
 	}
-
 }

@@ -22,9 +22,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
@@ -41,6 +44,7 @@ import de.grobox.transportr.ui.LceAnimator
 import de.grobox.transportr.utils.Linkify
 import de.grobox.transportr.utils.TransportrUtils.getDragDistance
 import de.schildbach.pte.dto.Trip
+import kotlinx.android.synthetic.main.activity_map.search
 import kotlinx.android.synthetic.main.fragment_trips.*
 import java.util.regex.Pattern
 import javax.annotation.ParametersAreNonnullByDefault
@@ -54,7 +58,6 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
     private lateinit var viewModel: DirectionsViewModel
     
     private val adapter = TripAdapter(this)
-    private var topSwipingEnabled = false
     private var queryMoreDirection = SwipyRefreshLayoutDirection.BOTH
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -72,18 +75,12 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
         // Progress Bar and Error View
         errorButton.setOnClickListener { viewModel.search() }
 
-        // Swipe to Refresh
-        swipe.let {
-            it.setColorSchemeColors(R.color.accent)
-            it.setDistanceToTriggerSync(getDragDistance(context))
-            it.setOnRefreshListener(this)
-        }
+        swipe.isEnabled = false // disable swipe, replaced with buttons
 
         val layoutManager = LinearLayoutManager(context)
         list.layoutManager = layoutManager
         list.setHasFixedSize(false)
-        viewModel.topSwipeEnabled.observe(viewLifecycleOwner, { enabled -> onSwipeEnabledChanged(enabled) })
-        viewModel.queryMoreState.observe(viewLifecycleOwner, { state -> updateSwipeState(state) })
+        viewModel.queryMoreState.observe(viewLifecycleOwner, { state -> updateSearchMoreState(state) })
         viewModel.trips.observe(viewLifecycleOwner, { trips -> onTripsLoaded(trips) })
         viewModel.queryError.observe(viewLifecycleOwner, { error -> onError(error) })
         viewModel.queryPTEError.observe(viewLifecycleOwner, { error -> onPTEError(error) })
@@ -92,34 +89,35 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
         adapter.setHasStableIds(false)
         list.adapter = adapter
         LceAnimator.showLoading(progressBar, list, errorLayout)
+
+        search_more_earlier.setOnClickListener {
+            updateSearchMoreState(QueryMoreState.NONE)
+            searchMoreEarlierProgressBar.visibility = VISIBLE
+            viewModel.searchMore(false)
+        }
+        search_more_later.setOnClickListener {
+            updateSearchMoreState(QueryMoreState.NONE)
+            viewModel.searchMore(true)
+            searchMoreLaterProgressBar.visibility = VISIBLE
+        }
     }
 
     override fun onRefresh(direction: SwipyRefreshLayoutDirection) {
-        queryMoreDirection = direction
-        val later = queryMoreDirection == SwipyRefreshLayoutDirection.BOTTOM
-        viewModel.searchMore(later)
+        // removed, because i don't like it
+        // replaced with buttons
     }
 
-    private fun onSwipeEnabledChanged(enabled: Boolean) {
-        if (!swipe.isRefreshing && enabled != topSwipingEnabled) {
-            updateSwipeState(viewModel.queryMoreState.value)
-        }
-        topSwipingEnabled = enabled
-    }
-
-    private fun updateSwipeState(state: QueryMoreState?) {
-        val topEnabled = viewModel.topSwipeEnabled.value
-        if (topEnabled == null || state == null) return
-        if (state === QueryMoreState.NONE || (!topEnabled && state === QueryMoreState.EARLIER)) {
-            swipe.isEnabled = false
+    private fun updateSearchMoreState(state: QueryMoreState?) {
+        /*val topEnabled = viewModel.topSwipeEnabled.value
+        if (topEnabled == null || state == null) return*/
+        if (state === QueryMoreState.NONE) {
+            search_more_earlier.isEnabled = false
+            search_more_later.isEnabled = false
         } else {
-            swipe.isEnabled = true
-            swipe.direction = when {
-                state === QueryMoreState.EARLIER -> SwipyRefreshLayoutDirection.TOP
-                state === QueryMoreState.LATER -> SwipyRefreshLayoutDirection.BOTTOM
-                !topEnabled && state === QueryMoreState.BOTH -> SwipyRefreshLayoutDirection.BOTTOM
-                else -> SwipyRefreshLayoutDirection.BOTH
-            }
+            search_more_earlier.isEnabled = true
+            search_more_later.isEnabled = true
+            searchMoreEarlierProgressBar.visibility = GONE
+            searchMoreLaterProgressBar.visibility = GONE
         }
     }
 
@@ -128,7 +126,7 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
         val oldCount = adapter.itemCount
         adapter.addAll(trips)
         if (oldCount > 0) {
-            swipe.isRefreshing = false
+            // swipe.isRefreshing = false
             list.smoothScrollBy(0, if (queryMoreDirection == SwipyRefreshLayoutDirection.BOTTOM) 200 else -200)
         } else {
             LceAnimator.showContent(progressBar, list, errorLayout)
@@ -152,7 +150,7 @@ class TripsFragment : TransportrFragment(), OnRefreshListener, OnTripClickListen
 
     private fun onMoreError(error: String?) {
         if (error == null) return
-        swipe.isRefreshing = false
+        // swipe.isRefreshing = false
         Toast.makeText(context, error, Toast.LENGTH_LONG).show()
     }
 

@@ -20,11 +20,11 @@
 package de.grobox.transportr.trips.search
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.MenuItem
-import android.view.View.VISIBLE
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
@@ -38,7 +38,20 @@ import de.grobox.transportr.trips.search.SavedSearchesFragment.HomePickerFragmen
 import de.grobox.transportr.trips.search.SavedSearchesFragment.WorkPickerFragment
 import de.grobox.transportr.utils.Constants.*
 import kotlinx.android.synthetic.main.activity_directions.*
+import kotlinx.android.synthetic.main.fragment_directions_form.date
+import kotlinx.android.synthetic.main.fragment_directions_form.departure
+import kotlinx.android.synthetic.main.fragment_directions_form.fromCard
 import kotlinx.android.synthetic.main.fragment_directions_form.fromLocation
+import kotlinx.android.synthetic.main.fragment_directions_form.productsIcon
+import kotlinx.android.synthetic.main.fragment_directions_form.productsMarked
+import kotlinx.android.synthetic.main.fragment_directions_form.time
+import kotlinx.android.synthetic.main.fragment_directions_form.timeBackground
+import kotlinx.android.synthetic.main.fragment_directions_form.timeIcon
+import kotlinx.android.synthetic.main.fragment_directions_form.toCard
+import kotlinx.android.synthetic.main.fragment_directions_form.viaCard
+import kotlinx.android.synthetic.main.location_view.searchGpsButton
+import kotlinx.android.synthetic.main.location_view.view.clearButton
+import kotlinx.android.synthetic.main.location_view.view.location
 import javax.inject.Inject
 
 class DirectionsActivity : TransportrActivity(), OnOffsetChangedListener {
@@ -87,6 +100,36 @@ class DirectionsActivity : TransportrActivity(), OnOffsetChangedListener {
         if (savedInstanceState == null) {
             showFavorites()
             processIntent(intent)
+        }
+
+        // define scroll animation
+        appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+            // hide buttons on scroll
+            val scrollPercent = (appBarLayout.totalScrollRange + verticalOffset).toFloat()/(appBarLayout.totalScrollRange.toFloat())
+            val enabled = scrollPercent >= 1.0
+            Log.d("fixscroll", "$verticalOffset ${appBarLayout.totalScrollRange} $scrollPercent")
+
+            directionsForm.apply {
+                timeBackground.alpha = scrollPercent
+                timeIcon.alpha = scrollPercent
+                departure.alpha = scrollPercent
+                date.alpha = scrollPercent
+                time.alpha = scrollPercent
+                productsIcon.alpha = scrollPercent
+                productsMarked.alpha = scrollPercent
+                fromCard.alpha = scrollPercent
+                this.view?.translationY = 1 - verticalOffset.toFloat() * 0.35f
+
+                fromCard.apply {
+                    location.isEnabled = enabled
+                    searchGpsButton.isEnabled = enabled
+                    clearButton.isEnabled = enabled
+                }
+                viaCard.apply {
+                    location.isEnabled = enabled
+                    clearButton.isEnabled = enabled
+                }
+            }
         }
     }
 

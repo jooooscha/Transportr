@@ -167,13 +167,19 @@ public abstract class FavoriteTripsFragment<VM extends SavedSearchesViewModel> e
 			if (item.getTo() == null) {
 				changeHome();
 			} else {
-				onSpecialLocationClicked(item.getTo());
+				// onSpecialLocationClicked(item.getTo());
+				Intent intent = new Intent(getContext(), DeparturesActivity.class);
+				intent.putExtra(WRAP_LOCATION, item.getTo());
+				startActivity(intent);
 			}
 		} else if (item.getType() == WORK) {
 			if (item.getTo() == null) {
 				changeWork();
 			} else {
-				onSpecialLocationClicked(item.getTo());
+				// onSpecialLocationClicked(item.getTo());
+				Intent intent = new Intent(getContext(), DeparturesActivity.class);
+				intent.putExtra(WRAP_LOCATION, item.getTo());
+				startActivity(intent);
 			}
 		} else if (item.getType() == TRIP) {
 			if (item.getFrom() == null || item.getTo() == null) throw new IllegalArgumentException();

@@ -1,25 +1,30 @@
-Transportr
-==========
+Transportr | [![Build and test](https://github.com/grote/Transportr/actions/workflows/build.yml/badge.svg)](https://github.com/grote/Transportr/actions/workflows/build.yml)
+============================================================================================================================================================================
 
 The public transport companion that respects your privacy and your freedom.
 Transportr is a non-profit app developed by people around the world to make using public transport as easy as possible wherever you are. 
 
-[![Transportr Logo](/app/src/main/res/mipmap-xhdpi/ic_launcher.png)](https://transportr.app)
-[![Build and test](https://github.com/grote/Transportr/actions/workflows/build.yml/badge.svg)](https://github.com/grote/Transportr/actions/workflows/build.yml)
+[![Transportr Logo](./app/src/main/res/mipmap-xhdpi/ic_launcher.png)](https://transportr.app)
 
 Please **[visit the website](https://transportr.app)** for more information!
 
 If you find any issues with this app, please report them at [the issue tracker](https://github.com/grote/Transportr/issues). Contributions are both encouraged and appreciated. If you like to contribute please [check the website](https://transportr.app/contribute) for more information.
-
-The upstream repository is at: https://github.com/grote/Transportr
 
 [![Follow @TransportrApp](artwork/twitter.png)](https://twitter.com/TransportrApp)
 
 Get Transportr
 --------------
 
-[![Available on F-Droid](/artwork/f-droid.png)](https://f-droid.org/repository/browse/?fdid=de.grobox.liberario)
-[![Available on Google Play](/artwork/google-play.png)](https://play.google.com/store/apps/details?id=de.grobox.liberario)
+<a href="https://f-droid.org/packages/de.grobox.liberario">
+    <img src="./artwork/f-droid.png"
+    alt="Get it on F-Droid"
+    height="80">
+</a>
+<a href="https://play.google.com/store/apps/details?id=de.grobox.liberario">
+    <img src="./artwork/google-play.png"
+    alt="Get it on Google Play"
+    height="80"/>
+</a>
 
 Pre-releases and beta versions for advanced users are available via [a special F-Droid repository](http://grobox.de/fdroid/).
 
@@ -57,3 +62,11 @@ will. Specifically you can redistribute and/or modify it under the terms of the
 [GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
+
+
+Acknowledgements
+----------------
+
+<a href="https://www.jawg.io"><img src="./artwork/jawgmaps.png" height="58"/></a>
+
+[JawgMaps](https://www.jawg.io) is a provider of online custom maps, geocoding and routing based on OpenStreetMap data. We would like to thank them for providing their vector map tile service to Transportr free of charge.
